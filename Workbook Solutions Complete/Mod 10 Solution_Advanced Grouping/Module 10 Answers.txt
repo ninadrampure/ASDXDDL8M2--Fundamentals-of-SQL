@@ -1,0 +1,32 @@
+use QATSQLPLUS
+
+--Ex 1 Task 1
+
+select *
+from
+dbo.VendorCourseDateDelegateCount 
+
+
+
+-- EX 2 Task 1
+
+SELECT Vendorname, CourseName, StartDate, NumberDelegates
+FROM dbo.VendorCourseDateDelegateCount
+
+-- EX 2 Task 1b
+
+SELECT Vendorname, CourseName, StartDate,
+SUM(NumberDelegates) AS TotalDelegates
+FROM dbo.VendorCourseDateDelegateCount
+GROUP BY Vendorname, CourseName, StartDate
+go
+
+-- EX 2 Task 1c - ROLLUP
+
+SELECT Vendorname, CourseName, StartDate,
+SUM(NumberDelegates) AS TotalDelegates
+FROM dbo.VendorCourseDateDelegateCount
+GROUP BY Vendorname, CourseName, StartDate
+WITH ROLLUP
+GO
+
