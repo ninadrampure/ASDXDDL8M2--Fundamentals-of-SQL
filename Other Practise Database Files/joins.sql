@@ -1,4 +1,4 @@
-USE PaulsDB
+USE NinoDB
 
 CREATE TABLE suppliers(
 	SupplierID varchar(4),
